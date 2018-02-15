@@ -100,31 +100,4 @@ Public Class frmReport
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-
-    Friend Sub ReportInit2(ByVal tmp As LocalReport, Optional ByVal addPara As Dictionary(Of String, String) = Nothing)
-        Try
-
-            With rv_display
-                .ProcessingMode = ProcessingMode.Local
-                .LocalReport.ReportPath = tmp.ReportPath
-                .LocalReport.DataSources.Clear()
-
-                .LocalReport.DataSources.Add(New ReportDataSource("dsVoucher", tmp.DataSources))
-
-                If Not addPara Is Nothing Then
-                    For Each nPara In addPara
-                        Dim tmpPara As New ReportParameter
-                        tmpPara.Name = nPara.Key
-                        tmpPara.Values.Add(nPara.Value)
-                        .LocalReport.SetParameters(New ReportParameter() {tmpPara})
-                    Next
-                End If
-                .RefreshReport()
-            End With
-
-        Catch ex As Exception
-            MsgBox(ex.ToString, MsgBoxStyle.Critical, "REPORT GENERATE ERROR")
-            Log_Report("REPORT - " & ex.ToString)
-        End Try
-    End Sub
 End Class

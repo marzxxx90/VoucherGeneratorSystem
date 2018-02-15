@@ -28,7 +28,9 @@ Public Class frmImportVoucher
         'End If
 
         Me.Enabled = False
+        pbStatus.Maximum = MaxEntries
         For cnt = 8 To MaxEntries
+            pbStatus.Value = cnt
             Dim tmpCode As New VoucherClass
             With tmpCode
                 If .isVoucherExist(oSheet.Cells(cnt, 1).Value) = True Then Continue For
@@ -36,6 +38,8 @@ Public Class frmImportVoucher
                 ._status = 1
                 .SaveVoucher()
             End With
+
+            Application.DoEvents()
             Console.WriteLine("Voucher Code " & oSheet.Cells(cnt, 1).Value)
         Next
         Me.Enabled = True

@@ -23,11 +23,12 @@ Partial Class frmImportVoucher
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtPath = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnImport = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtPath = New System.Windows.Forms.TextBox()
         Me.ofdImport = New System.Windows.Forms.OpenFileDialog()
+        Me.pbStatus = New System.Windows.Forms.ProgressBar()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -39,28 +40,19 @@ Partial Class frmImportVoucher
         Me.GroupBox1.Controls.Add(Me.txtPath)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(613, 163)
+        Me.GroupBox1.Size = New System.Drawing.Size(613, 135)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
-        'txtPath
+        'btnImport
         '
-        Me.txtPath.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPath.Location = New System.Drawing.Point(59, 19)
-        Me.txtPath.Name = "txtPath"
-        Me.txtPath.ReadOnly = True
-        Me.txtPath.Size = New System.Drawing.Size(478, 29)
-        Me.txtPath.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(543, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(64, 31)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = ". . ."
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnImport.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImport.Location = New System.Drawing.Point(184, 54)
+        Me.btnImport.Name = "btnImport"
+        Me.btnImport.Size = New System.Drawing.Size(246, 64)
+        Me.btnImport.TabIndex = 3
+        Me.btnImport.Text = "&IMPORT"
+        Me.btnImport.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -72,25 +64,42 @@ Partial Class frmImportVoucher
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Path"
         '
-        'btnImport
+        'Button1
         '
-        Me.btnImport.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImport.Location = New System.Drawing.Point(134, 54)
-        Me.btnImport.Name = "btnImport"
-        Me.btnImport.Size = New System.Drawing.Size(341, 94)
-        Me.btnImport.TabIndex = 3
-        Me.btnImport.Text = "&IMPORT"
-        Me.btnImport.UseVisualStyleBackColor = True
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(543, 19)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(64, 31)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = ". . ."
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'txtPath
+        '
+        Me.txtPath.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPath.Location = New System.Drawing.Point(59, 19)
+        Me.txtPath.Name = "txtPath"
+        Me.txtPath.ReadOnly = True
+        Me.txtPath.Size = New System.Drawing.Size(478, 29)
+        Me.txtPath.TabIndex = 0
         '
         'ofdImport
         '
         Me.ofdImport.Filter = "Voucher Data | *.CSV"
+        '
+        'pbStatus
+        '
+        Me.pbStatus.Location = New System.Drawing.Point(3, 146)
+        Me.pbStatus.Name = "pbStatus"
+        Me.pbStatus.Size = New System.Drawing.Size(613, 26)
+        Me.pbStatus.TabIndex = 4
         '
         'frmImportVoucher
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(621, 180)
+        Me.Controls.Add(Me.pbStatus)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -107,4 +116,5 @@ Partial Class frmImportVoucher
     Friend WithEvents txtPath As System.Windows.Forms.TextBox
     Friend WithEvents btnImport As System.Windows.Forms.Button
     Friend WithEvents ofdImport As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents pbStatus As System.Windows.Forms.ProgressBar
 End Class

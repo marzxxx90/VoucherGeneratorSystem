@@ -93,8 +93,11 @@ Public Class Reporting
 
     Public Sub PrintPage(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
         Dim pageImage As New Metafile(m_streams(m_currentPageIndex))
-        Console.WriteLine(pageImage.Size)
-        ev.Graphics.DrawImage(pageImage, ev.PageBounds)
+        Dim adjustedRect As New Rectangle(ev.PageBounds.Left - CInt(ev.PageSettings.HardMarginX), _
+                                         ev.PageBounds.Top - CInt(ev.PageSettings.HardMarginY), _
+                                         ev.PageBounds.Width, _
+                                         ev.PageBounds.Height)
+        ev.Graphics.DrawImage(pageImage, adjustedRect)
         ' ev.Graphics.DrawImage(pageImage, New Size(1.5, 1.8))
         m_currentPageIndex += 1
         ev.HasMorePages = (m_currentPageIndex < m_streams.Count)
