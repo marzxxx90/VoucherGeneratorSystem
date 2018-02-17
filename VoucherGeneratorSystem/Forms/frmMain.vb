@@ -1,4 +1,7 @@
 ﻿Imports Microsoft.Reporting.WinForms
+Imports System.Drawing.Printing
+Imports System.Drawing.Imaging
+Imports System.IO
 
 Public Class frmMain
 

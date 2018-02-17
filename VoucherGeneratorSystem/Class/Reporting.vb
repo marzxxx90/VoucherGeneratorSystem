@@ -40,16 +40,7 @@ Public Class Reporting
     End Function
 
     Public Sub Export(ByVal report As LocalReport, Optional ByVal size As Dictionary(Of String, Double) = Nothing, Optional ByVal NoMargin As Boolean = False)
-        Dim deviceInfo As String = _
-           "<DeviceInfo>" + _
-           "  <OutputFormat>EMF</OutputFormat>" + _
-           "  <PageWidth>8.5in</PageWidth>" + _
-           "  <PageHeight>11in</PageHeight>" + _
-           "  <MarginTop>0.25in</MarginTop>" + _
-           "  <MarginLeft>0.25in</MarginLeft>" + _
-           "  <MarginRight>0.25in</MarginRight>" + _
-           "  <MarginBottom>0.25in</MarginBottom>" + _
-           "</DeviceInfo>"
+        Dim deviceInfo As String 
 
         If Not size Is Nothing Then
             Console.WriteLine("Resizing Paper....")
@@ -76,7 +67,17 @@ Public Class Reporting
        "  <MarginBottom>0.25in</MarginBottom>" + _
        "</DeviceInfo>"
             End If
-          
+        Else
+            deviceInfo = _
+           "<DeviceInfo>" + _
+           "  <OutputFormat>EMF</OutputFormat>" + _
+           "  <PageWidth>8.5in</PageWidth>" + _
+           "  <PageHeight>11in</PageHeight>" + _
+           "  <MarginTop>0.25in</MarginTop>" + _
+           "  <MarginLeft>0.25in</MarginLeft>" + _
+           "  <MarginRight>0.25in</MarginRight>" + _
+           "  <MarginBottom>0.25in</MarginBottom>" + _
+           "</DeviceInfo>"
         End If
         Console.WriteLine("Device Info:" & deviceInfo)
         ' Console.WriteLine(deviceInfo)
@@ -98,7 +99,6 @@ Public Class Reporting
                                          ev.PageBounds.Width, _
                                          ev.PageBounds.Height)
         ev.Graphics.DrawImage(pageImage, adjustedRect)
-        ' ev.Graphics.DrawImage(pageImage, New Size(1.5, 1.8))
         m_currentPageIndex += 1
         ev.HasMorePages = (m_currentPageIndex < m_streams.Count)
         Console.WriteLine("Num of Pages: " & m_streams.Count)
@@ -123,6 +123,8 @@ Public Class Reporting
 
         AddHandler printDoc.PrintPage, AddressOf PrintPage
         ' printDoc.PrinterSettings.Duplex = Duplex.Horizontal
+        Dim pkCustomSize1 As New PaperSize("Custom Paper Size", 150, 180)
+        printDoc.DefaultPageSettings.PaperSize = pkCustomSize1
         ' printDoc.DefaultPageSettings.Landscape = True
         Console.WriteLine("Printer Page")
         Console.WriteLine(printDoc.DefaultPageSettings.PaperSize)

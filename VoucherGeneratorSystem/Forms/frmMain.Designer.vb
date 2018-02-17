@@ -35,8 +35,8 @@ Partial Class frmMain
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImportVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -114,7 +114,7 @@ Partial Class frmMain
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportVoucherToolStripMenuItem, Me.ClearVoucherToolStripMenuItem, Me.SetPrinterToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "Options"
         '
         'ImportVoucherToolStripMenuItem
@@ -129,17 +129,17 @@ Partial Class frmMain
         Me.ClearVoucherToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.ClearVoucherToolStripMenuItem.Text = "&Clear Voucher"
         '
-        'AboutUsToolStripMenuItem
-        '
-        Me.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem"
-        Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.AboutUsToolStripMenuItem.Text = "About Us"
-        '
         'SetPrinterToolStripMenuItem
         '
         Me.SetPrinterToolStripMenuItem.Name = "SetPrinterToolStripMenuItem"
         Me.SetPrinterToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.SetPrinterToolStripMenuItem.Text = "&Set Printer"
+        '
+        'AboutUsToolStripMenuItem
+        '
+        Me.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem"
+        Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.AboutUsToolStripMenuItem.Text = "About Us"
         '
         'frmMain
         '
