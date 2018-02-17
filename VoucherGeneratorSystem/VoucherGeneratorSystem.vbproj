@@ -48,6 +48,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DeathCodez">
       <HintPath>.\DeathCodez.dll</HintPath>
@@ -84,6 +87,12 @@
   <ItemGroup>
     <Compile Include="Class\Reporting.vb" />
     <Compile Include="Class\VoucherClass.vb" />
+    <Compile Include="Forms\frmAboutUs.Designer.vb">
+      <DependentUpon>frmAboutUs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAboutUs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmImportVoucher.Designer.vb">
       <DependentUpon>frmImportVoucher.vb</DependentUpon>
     </Compile>
@@ -135,6 +144,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAboutUs.resx">
+      <DependentUpon>frmAboutUs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmImportVoucher.resx">
       <DependentUpon>frmImportVoucher.vb</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +173,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

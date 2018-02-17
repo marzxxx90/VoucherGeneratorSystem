@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("VoucherGeneratorSystem")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyTitle("Voucher Generator System")> 
+<Assembly: AssemblyDescription("A Voucher System that Secure Security is a serious concern in connection with public and private hotspots")> 
+<Assembly: AssemblyCompany("PGC")> 
 <Assembly: AssemblyProduct("VoucherGeneratorSystem")> 
 <Assembly: AssemblyCopyright("Copyright ©  2018")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("©DarkFujimuraDevs")> 
 
 <Assembly: ComVisible(False)>
 

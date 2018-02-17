@@ -10,6 +10,10 @@ Public Class frmMain
     End Sub
 
     Private Sub ClearVoucherToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearVoucherToolStripMenuItem.Click
+        Dim ans As DialogResult = _
+           MsgBox("Are you sure you want to clear?", MsgBoxStyle.YesNo + MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "Voucher Generator System")
+        If ans = Windows.Forms.DialogResult.No Then Exit Sub
+
         Dim mysql As String = "Delete From tblVoucher"
         Dim CLearVoucher As String = "SET GENERATOR TBLVOUCHER_ID_GEN TO 0;"
 
@@ -92,5 +96,16 @@ Public Class frmMain
 
     Private Sub SetPrinterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SetPrinterToolStripMenuItem.Click
         frmSetPrinter.Show()
+    End Sub
+
+    Private Sub AboutUsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutUsToolStripMenuItem.Click
+        frmAboutUs.Show()
+    End Sub
+
+    Private Sub CountOfAvailableVoucherToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CountOfAvailableVoucherToolStripMenuItem.Click
+        Dim mysql As String = "Select Count(id)as TotalCount From tblVoucher Where Status = 1"
+        Dim ds As DataSet = LoadSQL(mysql, "tblVoucher")
+
+        MsgBox(ds.Tables(0).Rows(0).Item("TotalCount") & " Only Available Voucher", MsgBoxStyle.Information, "Voucher Generator System")
     End Sub
 End Class
