@@ -64,6 +64,15 @@
 
         Return False
     End Function
+
+    Friend Sub UpdateVoucherStatus(ByVal idx As Integer)
+        Dim mysql As String = "Select * From tblVoucher Where id = " & idx
+        Dim ds As DataSet = LoadSQL(mysql, "tblVoucher")
+
+        ds.Tables(0).Rows(0).Item("Status") = 0
+
+        SaveEntry(ds, False)
+    End Sub
 #End Region
 
 End Class

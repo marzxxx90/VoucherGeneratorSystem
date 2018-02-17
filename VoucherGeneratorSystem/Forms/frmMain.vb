@@ -46,16 +46,11 @@ Public Class frmMain
 
         Dim ds As DataSet = LoadSQL(mySql, dsName)
 
-        'Dim pt As Integer = ds.Tables(0).Rows(0).Item("PAWNID")
-        'PT_Entry.Load_PTid(pt)
-
         report.ReportPath = "Reports\rpt_VoucherLayout2.rdlc"
         report.DataSources.Add(New ReportDataSource(dsName, ds.Tables(dsName)))
 
         Dim addParameters As New Dictionary(Of String, String)
-
         addParameters.Add("VoucherCode", ds.Tables(0).Rows(0).Item("VCode"))
-        'addParameters.Add("txtUsername", POSuser.FullName)
 
         Dim paperSize As New Dictionary(Of String, Double)
         paperSize.Add("width", 1.5)
@@ -79,6 +74,9 @@ Public Class frmMain
             autoPrintPT.Print(printerName)
         End If
 
+        Dim tmpVoucher As VoucherClass
+        tmpVoucher = New VoucherClass
+        tmpVoucher.UpdateVoucherStatus(ds.Tables(0).Rows(0).Item("ID"))
         Me.Focus()
     End Sub
 
