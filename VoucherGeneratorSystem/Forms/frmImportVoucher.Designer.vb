@@ -102,7 +102,9 @@ Partial Class frmImportVoucher
         Me.Controls.Add(Me.pbStatus)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(637, 218)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(637, 218)
         Me.Name = "frmImportVoucher"
         Me.Text = "Import Voucher"
         Me.GroupBox1.ResumeLayout(False)

@@ -77,7 +77,9 @@ Partial Class frmSetPrinter
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSet)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(300, 213)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(300, 213)
         Me.Name = "frmSetPrinter"
         Me.Text = "Set Printer"
         Me.GroupBox1.ResumeLayout(False)

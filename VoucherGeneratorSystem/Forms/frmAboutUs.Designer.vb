@@ -162,7 +162,9 @@ Partial Class frmAboutUs
         Me.Controls.Add(Me.TableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(420, 304)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(420, 304)
         Me.Name = "frmAboutUs"
         Me.Padding = New System.Windows.Forms.Padding(9)
         Me.ShowInTaskbar = False

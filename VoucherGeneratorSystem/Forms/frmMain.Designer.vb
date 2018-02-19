@@ -34,9 +34,10 @@ Partial Class frmMain
         Me.ImportVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CountOfAvailableVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,14 +47,14 @@ Partial Class frmMain
         Me.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel1.Location = New System.Drawing.Point(0, 27)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1009, 319)
+        Me.Panel1.Size = New System.Drawing.Size(1009, 393)
         Me.Panel1.TabIndex = 0
         '
         'lblTime
         '
         Me.lblTime.AutoSize = True
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(270, 373)
+        Me.lblTime.Location = New System.Drawing.Point(270, 447)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(410, 46)
         Me.lblTime.TabIndex = 2
@@ -62,7 +63,7 @@ Partial Class frmMain
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(0, 352)
+        Me.btnGenerate.Location = New System.Drawing.Point(0, 426)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(264, 88)
         Me.btnGenerate.TabIndex = 0
@@ -84,7 +85,7 @@ Partial Class frmMain
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
@@ -114,12 +115,6 @@ Partial Class frmMain
         Me.SetPrinterToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.SetPrinterToolStripMenuItem.Text = "&Set Printer"
         '
-        'AboutUsToolStripMenuItem
-        '
-        Me.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem"
-        Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.AboutUsToolStripMenuItem.Text = "About &Us"
-        '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CountOfAvailableVoucherToolStripMenuItem})
@@ -133,12 +128,24 @@ Partial Class frmMain
         Me.CountOfAvailableVoucherToolStripMenuItem.Size = New System.Drawing.Size(219, 22)
         Me.CountOfAvailableVoucherToolStripMenuItem.Text = "&Count of Available Voucher"
         '
+        'AboutUsToolStripMenuItem
+        '
+        Me.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem"
+        Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.AboutUsToolStripMenuItem.Text = "About &Us"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Text = "&Exit"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.ClientSize = New System.Drawing.Size(1009, 443)
+        Me.ClientSize = New System.Drawing.Size(1009, 517)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Panel1)
@@ -165,4 +172,5 @@ Partial Class frmMain
     Friend WithEvents AboutUsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CountOfAvailableVoucherToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
