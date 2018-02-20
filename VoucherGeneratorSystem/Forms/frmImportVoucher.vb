@@ -4,6 +4,7 @@ Public Class frmImportVoucher
 
     Private Sub btnImport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImport.Click
         If txtPath.Text = "" Then Exit Sub
+        If cboMins.Text = "" Then Exit Sub
 
         'Load Excel
         Dim oXL As New Excel.Application
@@ -27,22 +28,23 @@ Public Class frmImportVoucher
         '    GoTo unloadObj
         'End If
 
-        Me.Enabled = False
+        Disable(1)
         pbStatus.Maximum = MaxEntries
         For cnt = 8 To MaxEntries
             pbStatus.Value = cnt
             Dim tmpCode As New VoucherClass
             With tmpCode
-                If .isVoucherExist(oSheet.Cells(cnt, 1).Value) = True Then Continue For
+                If .isVoucherExist(oSheet.Cells(cnt, 1).Value, cboMins.Text) = True Then Continue For
                 ._vCode = oSheet.Cells(cnt, 1).Value
                 ._status = 1
+                ._mins_Time = cboMins.Text
                 .SaveVoucher()
             End With
 
             Application.DoEvents()
             Console.WriteLine("Voucher Code " & oSheet.Cells(cnt, 1).Value)
         Next
-        Me.Enabled = True
+        Disable(0)
 
 unloadObj:
         'Memory Unload
@@ -58,5 +60,24 @@ unloadObj:
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         ofdImport.ShowDialog()
         txtPath.Text = ofdImport.FileName
+    End Sub
+
+    Private Sub frmImportVoucher_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim mysql As String = "Select DISTINCT(Mins_Time) From tblVoucher"
+        Dim ds As DataSet = LoadSQL(mysql, "tblVoucher")
+
+        cboMins.Items.Clear()
+        For Each dr In ds.Tables(0).Rows
+            cboMins.Items.Add(dr.item("Mins_Time"))
+        Next
+    End Sub
+
+    Private Sub cboMins_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles cboMins.KeyPress
+        DigitOnly(e)
+    End Sub
+
+    Private Sub Disable(ByVal st As Boolean)
+        btnImport.Enabled = Not st
+        cboMins.Enabled = Not st
     End Sub
 End Class

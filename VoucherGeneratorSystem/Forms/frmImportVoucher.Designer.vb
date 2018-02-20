@@ -29,27 +29,31 @@ Partial Class frmImportVoucher
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.ofdImport = New System.Windows.Forms.OpenFileDialog()
         Me.pbStatus = New System.Windows.Forms.ProgressBar()
+        Me.cboMins = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.cboMins)
         Me.GroupBox1.Controls.Add(Me.btnImport)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtPath)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(613, 135)
+        Me.GroupBox1.Size = New System.Drawing.Size(613, 125)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
         'btnImport
         '
         Me.btnImport.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnImport.Location = New System.Drawing.Point(184, 54)
+        Me.btnImport.Location = New System.Drawing.Point(290, 58)
         Me.btnImport.Name = "btnImport"
-        Me.btnImport.Size = New System.Drawing.Size(246, 64)
+        Me.btnImport.Size = New System.Drawing.Size(247, 58)
         Me.btnImport.TabIndex = 3
         Me.btnImport.Text = "&IMPORT"
         Me.btnImport.UseVisualStyleBackColor = True
@@ -89,10 +93,29 @@ Partial Class frmImportVoucher
         '
         'pbStatus
         '
-        Me.pbStatus.Location = New System.Drawing.Point(3, 146)
+        Me.pbStatus.Location = New System.Drawing.Point(3, 151)
         Me.pbStatus.Name = "pbStatus"
         Me.pbStatus.Size = New System.Drawing.Size(613, 26)
         Me.pbStatus.TabIndex = 4
+        '
+        'cboMins
+        '
+        Me.cboMins.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMins.FormattingEnabled = True
+        Me.cboMins.Location = New System.Drawing.Point(59, 73)
+        Me.cboMins.Name = "cboMins"
+        Me.cboMins.Size = New System.Drawing.Size(116, 28)
+        Me.cboMins.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(181, 76)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 25)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Minutes"
         '
         'frmImportVoucher
         '
@@ -119,4 +142,6 @@ Partial Class frmImportVoucher
     Friend WithEvents btnImport As System.Windows.Forms.Button
     Friend WithEvents ofdImport As System.Windows.Forms.OpenFileDialog
     Friend WithEvents pbStatus As System.Windows.Forms.ProgressBar
+    Friend WithEvents cboMins As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

@@ -31,6 +31,16 @@
         End Set
     End Property
 
+    Private Mins_Time As Integer
+    Public Property _mins_Time() As Integer
+        Get
+            Return Mins_Time
+        End Get
+        Set(ByVal value As Integer)
+            Mins_Time = value
+        End Set
+    End Property
+
 #End Region
 
 #Region "Procedures"
@@ -43,6 +53,7 @@
         With dsNewRow
             .Item("VCode") = _vCode
             .Item("Status") = _status
+            .Item("Mins_Time") = _mins_Time
         End With
         ds.Tables(0).Rows.Add(dsNewRow)
         SaveEntry(ds)
@@ -53,11 +64,12 @@
             _id = .Item("ID")
             _vCode = .Item("VCode")
             _status = .Item("Status")
+            _mins_Time = .Item("Mins_Time")
         End With
     End Sub
 
-    Friend Function isVoucherExist(ByVal tmpCode As String)
-        Dim mysql As String = "Select * From tblVoucher Where VCode = '" & tmpCode & "'"
+    Friend Function isVoucherExist(ByVal tmpCode As String, ByVal tmpTime As Integer)
+        Dim mysql As String = "Select * From tblVoucher Where VCode = '" & tmpCode & "' And Mins_Time = '" & tmpTime & "'"
         Dim ds As DataSet = LoadSQL(mysql, "tblVoucher")
 
         If ds.Tables(0).Rows.Count >= 1 Then Return True

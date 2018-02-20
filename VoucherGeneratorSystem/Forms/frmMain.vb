@@ -34,6 +34,7 @@ Public Class frmMain
     End Sub
 
     Private Sub btnGenerate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGenerate.Click
+        If cboMins.Text = "" Then Exit Sub
         PrintVoucher()
     End Sub
 
@@ -52,7 +53,7 @@ Public Class frmMain
         autoPrintPT = New Reporting
 
         Dim mySql As String, dsName As String = "dsVoucher"
-        mySql = "Select * From tblVoucher Where Status = 1 Order By ID Asc Rows 1"
+        mySql = "Select * From tblVoucher Where Mins_Time = '" & cboMins.Text & "' And Status = 1 Order By ID Asc Rows 1"
 
         Dim ds As DataSet = LoadSQL(mySql, dsName)
         If ds.Tables(0).Rows.Count = 0 Then MsgBox("No Voucher Available", MsgBoxStyle.Critical, "Voucher Generator System") : Exit Sub
@@ -124,5 +125,15 @@ Public Class frmMain
 
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim mysql As String = "Select DISTINCT(Mins_Time) From tblVoucher"
+        Dim ds As DataSet = LoadSQL(mysql, "tblVoucher")
+
+        cboMins.Items.Clear()
+        For Each dr In ds.Tables(0).Rows
+            cboMins.Items.Add(dr.item("Mins_Time"))
+        Next
     End Sub
 End Class

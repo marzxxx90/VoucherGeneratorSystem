@@ -34,10 +34,12 @@ Partial Class frmMain
         Me.ImportVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SetPrinterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CountOfAvailableVoucherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cboMins = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,7 +56,7 @@ Partial Class frmMain
         '
         Me.lblTime.AutoSize = True
         Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.Location = New System.Drawing.Point(270, 447)
+        Me.lblTime.Location = New System.Drawing.Point(503, 447)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(410, 46)
         Me.lblTime.TabIndex = 2
@@ -63,7 +65,7 @@ Partial Class frmMain
         'btnGenerate
         '
         Me.btnGenerate.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGenerate.Location = New System.Drawing.Point(0, 426)
+        Me.btnGenerate.Location = New System.Drawing.Point(233, 426)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(264, 88)
         Me.btnGenerate.TabIndex = 0
@@ -94,7 +96,7 @@ Partial Class frmMain
         '
         Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ImportVoucherToolStripMenuItem, Me.ClearVoucherToolStripMenuItem, Me.SetPrinterToolStripMenuItem})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.OptionsToolStripMenuItem.Text = "&Options"
         '
         'ImportVoucherToolStripMenuItem
@@ -115,6 +117,12 @@ Partial Class frmMain
         Me.SetPrinterToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
         Me.SetPrinterToolStripMenuItem.Text = "&Set Printer"
         '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.ExitToolStripMenuItem.Text = "&Exit"
+        '
         'ToolsToolStripMenuItem
         '
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CountOfAvailableVoucherToolStripMenuItem})
@@ -134,11 +142,25 @@ Partial Class frmMain
         Me.AboutUsToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.AboutUsToolStripMenuItem.Text = "About &Us"
         '
-        'ExitToolStripMenuItem
+        'cboMins
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem.Text = "&Exit"
+        Me.cboMins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboMins.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMins.FormattingEnabled = True
+        Me.cboMins.Location = New System.Drawing.Point(0, 447)
+        Me.cboMins.Name = "cboMins"
+        Me.cboMins.Size = New System.Drawing.Size(126, 32)
+        Me.cboMins.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(132, 449)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 25)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Minutes"
         '
         'frmMain
         '
@@ -146,6 +168,8 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.ClientSize = New System.Drawing.Size(1009, 517)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cboMins)
         Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Panel1)
@@ -173,4 +197,6 @@ Partial Class frmMain
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CountOfAvailableVoucherToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cboMins As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
