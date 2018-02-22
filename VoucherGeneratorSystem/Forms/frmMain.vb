@@ -45,21 +45,30 @@ Public Class frmMain
 
         Dim autoPrintPT As Reporting
         'On Error Resume Next
-
+        Dim tmpCount As Integer = 1
         Dim printerName As String = GetOption("VoucherPrinter")
         If Not canPrint(printerName) Then Exit Sub
+
+        If rbMass.Checked = True Then
+            Dim tmp As String = String.Empty
+            While Not IsNumeric(tmp)
+                tmp = InputBox("Voucher to be Generate", "Voucher Generate System")
+                If tmp = "" Then Exit Sub
+            End While
+            tmpCount = tmp
+        End If
 
         Dim report As LocalReport = New LocalReport
         autoPrintPT = New Reporting
 
         Dim mySql As String, dsName As String = "dsVoucher"
-        mySql = "Select * From tblVoucher Where Mins_Time = '" & cboMins.Text & "' And Status = 1 Order By ID Asc Rows 1"
+        mySql = "Select * From tblVoucher Where Mins_Time = '" & cboMins.Text & "' And Status = 1 Order By ID Asc Rows " & tmpCount & ""
 
         Dim ds As DataSet = LoadSQL(mySql, dsName)
         If ds.Tables(0).Rows.Count = 0 Then MsgBox("No Voucher Available", MsgBoxStyle.Critical, "Voucher Generator System") : Exit Sub
 
 
-        report.ReportPath = "Reports\rpt_VoucherLayout2.rdlc"
+        report.ReportPath = "Reports\rpt_VoucherLayout3.rdlc"
         report.DataSources.Add(New ReportDataSource(dsName, ds.Tables(dsName)))
 
         Dim addParameters As New Dictionary(Of String, String)
@@ -88,8 +97,13 @@ Public Class frmMain
         End If
 
         Dim tmpVoucher As VoucherClass
-        tmpVoucher = New VoucherClass
-        tmpVoucher.UpdateVoucherStatus(ds.Tables(0).Rows(0).Item("ID"))
+        For Each dr In ds.Tables(0).Rows
+            tmpVoucher = New VoucherClass
+            tmpVoucher.UpdateVoucherStatus(dr.item("ID"))
+            Console.WriteLine("ID " & dr.item("ID"))
+            Console.WriteLine("Voucher " & dr.item("Vcode"))
+        Next
+        
         Me.Focus()
     End Sub
 

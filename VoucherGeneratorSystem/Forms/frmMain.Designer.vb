@@ -40,6 +40,9 @@ Partial Class frmMain
         Me.AboutUsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cboMins = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.rbOnlyOne = New System.Windows.Forms.RadioButton()
+        Me.rbMass = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -147,7 +150,7 @@ Partial Class frmMain
         Me.cboMins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMins.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMins.FormattingEnabled = True
-        Me.cboMins.Location = New System.Drawing.Point(0, 447)
+        Me.cboMins.Location = New System.Drawing.Point(0, 473)
         Me.cboMins.Name = "cboMins"
         Me.cboMins.Size = New System.Drawing.Size(126, 32)
         Me.cboMins.TabIndex = 3
@@ -156,11 +159,43 @@ Partial Class frmMain
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(132, 449)
+        Me.Label2.Location = New System.Drawing.Point(132, 475)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(95, 25)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Minutes"
+        '
+        'rbOnlyOne
+        '
+        Me.rbOnlyOne.AutoSize = True
+        Me.rbOnlyOne.Checked = True
+        Me.rbOnlyOne.Location = New System.Drawing.Point(0, 447)
+        Me.rbOnlyOne.Name = "rbOnlyOne"
+        Me.rbOnlyOne.Size = New System.Drawing.Size(69, 17)
+        Me.rbOnlyOne.TabIndex = 0
+        Me.rbOnlyOne.TabStop = True
+        Me.rbOnlyOne.Text = "Only One"
+        Me.rbOnlyOne.UseVisualStyleBackColor = True
+        '
+        'rbMass
+        '
+        Me.rbMass.AutoSize = True
+        Me.rbMass.Location = New System.Drawing.Point(88, 447)
+        Me.rbMass.Name = "rbMass"
+        Me.rbMass.Size = New System.Drawing.Size(61, 17)
+        Me.rbMass.TabIndex = 7
+        Me.rbMass.Text = "Multiple"
+        Me.rbMass.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(-4, 426)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(85, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Generate"
         '
         'frmMain
         '
@@ -168,6 +203,9 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.ClientSize = New System.Drawing.Size(1009, 517)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.rbMass)
+        Me.Controls.Add(Me.rbOnlyOne)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cboMins)
         Me.Controls.Add(Me.lblTime)
@@ -200,4 +238,7 @@ Partial Class frmMain
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cboMins As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents rbOnlyOne As System.Windows.Forms.RadioButton
+    Friend WithEvents rbMass As System.Windows.Forms.RadioButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
