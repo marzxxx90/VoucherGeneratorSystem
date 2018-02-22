@@ -93,12 +93,9 @@ Public Class Reporting
     End Sub
 
     Public Sub PrintPage(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
-        Dim pageImage As New Metafile(m_streams(m_currentPageIndex))
-        Dim adjustedRect As New Rectangle(ev.PageBounds.Left - CInt(ev.PageSettings.HardMarginX), _
-                                         ev.PageBounds.Top - CInt(ev.PageSettings.HardMarginY), _
-                                         ev.PageBounds.Width, _
-                                         ev.PageBounds.Height)
-        ev.Graphics.DrawImage(pageImage, adjustedRect)
+       Dim pageImage As New Metafile(m_streams(m_currentPageIndex))
+
+        ev.Graphics.DrawImage(pageImage, ev.PageBounds)
         m_currentPageIndex += 1
         ev.HasMorePages = (m_currentPageIndex < m_streams.Count)
         Console.WriteLine("Num of Pages: " & m_streams.Count)
@@ -122,8 +119,8 @@ Public Class Reporting
         End If
 
         AddHandler printDoc.PrintPage, AddressOf PrintPage
-        ' printDoc.PrinterSettings.Duplex = Duplex.Horizontal
-        Dim pkCustomSize1 As New PaperSize("Custom Paper Size", 150, 180)
+        printDoc.PrinterSettings.Duplex = Duplex.Horizontal
+        Dim pkCustomSize1 As New PaperSize("Custom Paper Size", 160, 190)
         printDoc.DefaultPageSettings.PaperSize = pkCustomSize1
         ' printDoc.DefaultPageSettings.Landscape = True
         Console.WriteLine("Printer Page")

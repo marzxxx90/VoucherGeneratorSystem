@@ -174,6 +174,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.btnGenerate)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
         Me.Text = "Voucher Generator System"
