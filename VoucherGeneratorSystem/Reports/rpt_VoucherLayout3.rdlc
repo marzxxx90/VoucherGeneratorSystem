@@ -102,7 +102,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsVoucher</DataSetName>
-        <Top>0.04167in</Top>
+        <Top>0.01389in</Top>
         <Height>0.32778in</Height>
         <Width>1.5in</Width>
         <Style>
@@ -112,7 +112,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.38333in</Height>
+    <Height>0.35208in</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -124,7 +124,7 @@
   <Width>1.5in</Width>
   <Page>
     <PageHeader>
-      <Height>1.44792in</Height>
+      <Height>1.42708in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
