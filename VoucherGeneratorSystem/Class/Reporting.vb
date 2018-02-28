@@ -120,7 +120,7 @@ Public Class Reporting
 
         AddHandler printDoc.PrintPage, AddressOf PrintPage
         printDoc.PrinterSettings.Duplex = Duplex.Horizontal
-        Dim pkCustomSize1 As New PaperSize("Custom Paper Size", 160, 190)
+        Dim pkCustomSize1 As New PaperSize("Custom Paper Size", 160, 180)
         printDoc.DefaultPageSettings.PaperSize = pkCustomSize1
         ' printDoc.DefaultPageSettings.Landscape = True
         Console.WriteLine("Printer Page")
